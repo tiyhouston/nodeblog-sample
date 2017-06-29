@@ -1,5 +1,19 @@
 body {
   margin: 0;
   padding: 0;
-  background: grey;
+  background: #ecf0f1;
+  color: #666666;
+}
+
+header {
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+  padding: 20px;
+  text-align: center;
+}
+
+.wrapper {
+  width: 1000px;
+  margin: 0 auto;
 }
