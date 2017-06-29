@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "jwo",
+    "password": null,
+    "database": "nodeblog",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "jwo",
+    "password": null,
+    "database": "nodeblog",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "jwo",
+    "password": null,
+    "database": "nodeblog",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
