@@ -22,6 +22,10 @@
         <fieldset>
           <legend>Update Article</legend>
 
+          {{#errors}}
+            <li>{{message}}</li>
+          {{/errors}}
+
 
           <div class="">
             <label for="title">Title</label>

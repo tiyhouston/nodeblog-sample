@@ -22,15 +22,19 @@
         <fieldset>
           <legend>New Article</legend>
 
+          {{#errors}}
+            <li>{{message}}</li>
+          {{/errors}}
+
 
           <div class="">
             <label for="title">Title</label>
-            <input type="text" name="title" value="">
+            <input type="text" name="title" value="{{article.title}}">
           </div>
 
           <div class="">
             <label for="text">Article Text</label>
-            <textarea name="text" rows="8" cols="80"></textarea>
+            <textarea name="text" rows="8" cols="80">{{article.text}}</textarea>
           </div>
 
           <div class="">

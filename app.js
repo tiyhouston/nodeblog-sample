@@ -67,9 +67,17 @@ app.post('/articles', function(req, res){
     title: req.body.title,
     text: req.body.text
   })
-  article.save().then(function(){
-    res.redirect("/")
-  })
+  article.save()
+    .then(function(){
+      res.redirect("/")
+    })
+    .catch(function(bigErrorThing){
+
+      res.render("compose", {
+        article: article,
+        errors: bigErrorThing.errors
+      })
+    })
 })
 
 app.post("/articles/:id", function(req, res){
@@ -81,10 +89,18 @@ app.post("/articles/:id", function(req, res){
     // article.update(req.body)
     article.text = req.body.text;
     article.title = req.body.title;
-    article.save().then( function(){
+    article.save()
+    .then( function(){
       res.redirect(`/articles/${article.id}`)
     })
+    .catch(function(bigErrorThing){
+      res.render("articleEdit", {
+        article: article,
+        errors: bigErrorThing.errors
+      })
+    })
   })
+
 })
 
 app.post("/articles/:id/delete", function(req, res){
