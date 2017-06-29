@@ -5,11 +5,22 @@
     <title></title>
 
     <link rel="stylesheet" href="/css/master.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
   </head>
   <body>
 
     <header>
       NodeBlog
+
+      <div class="actions">
+        <a href="/compose">Compose</a>
+      </div>
+
+
+
+
+
+
     </header>
 
     <div class="wrapper">
@@ -20,6 +31,7 @@
         {{#articles}}
           <article class="">
             <h2> {{title}} </h2>
+            <small class="date">{{publishedAt}}</small>
             <p>
               {{text}}
             </p>

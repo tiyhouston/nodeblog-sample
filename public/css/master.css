@@ -17,3 +17,25 @@ header {
   width: 1000px;
   margin: 0 auto;
 }
+
+
+form label {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 1em;
+}
+form input, textarea{
+  width: 100%;
+}
+form input[type='text'] {
+  font-size: 1.2em;
+}
+
+form input[type='submit'] {
+  display: block;
+  font-size: 1.2em;
+  padding: 1em;
+  background: #27ae60;
+  color: white;
+  margin-top: 1em;
+}
