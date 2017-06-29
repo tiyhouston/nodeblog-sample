@@ -7,3 +7,12 @@ for (var i = 0; i < dates.length; i++) {
     dates[i].textContent = now.format("LLLL");
   }
 }
+
+const deleteForm = document.querySelector("form.delete");
+if (deleteForm){
+  deleteForm.addEventListener("submit", function(event){
+    if (confirm("Are you sure?") !== true ){
+      event.preventDefault();
+    }
+  })
+}

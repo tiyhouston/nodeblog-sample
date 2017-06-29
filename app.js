@@ -36,6 +36,31 @@ app.get('/', function(req, res){
 app.get('/compose', function(req, res){
   res.render("compose")
 })
+
+app.get('/articles/:id', function(req, res){
+  models.Article.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(article){
+    res.render("article", {
+      article: article
+    })
+  })
+})
+
+app.get('/articles/:id/edit', function(req, res){
+  models.Article.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then( function(article){
+    res.render("articleEdit", {
+      article: article
+    })
+  })
+})
+
 app.post('/articles', function(req, res){
 
   const article = models.Article.build({
@@ -44,5 +69,32 @@ app.post('/articles', function(req, res){
   })
   article.save().then(function(){
     res.redirect("/")
+  })
+})
+
+app.post("/articles/:id", function(req, res){
+  models.Article.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then( function(article){
+    // article.update(req.body)
+    article.text = req.body.text;
+    article.title = req.body.title;
+    article.save().then( function(){
+      res.redirect(`/articles/${article.id}`)
+    })
+  })
+})
+
+app.post("/articles/:id/delete", function(req, res){
+  models.Article.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then( function(article){
+    article.destroy().then( function(){
+      res.redirect("/")
+    })
   })
 })
