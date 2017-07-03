@@ -35,6 +35,16 @@
           <p>
             {{article.text}}
           </p>
+
+          <h2>Comments</h2>
+          {{#comments}}
+            <div class="comment">
+              <strong>{{commentor}}</strong><br>
+              <blockquote>
+                {{text}}
+              </blockquote>
+            </div>
+          {{/comments}}
         </article>
 
         <ul>

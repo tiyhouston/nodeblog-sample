@@ -43,9 +43,19 @@ app.get('/articles/:id', function(req, res){
       id: req.params.id
     }
   }).then(function(article){
-    res.render("article", {
-      article: article
+
+    models.Comment.findAll({
+      where: {
+        articleId: article.id
+      }
+    }).then( function(comments){
+      res.render("article", {
+        article: article,
+        comments: comments
+      })
+
     })
+
   })
 })
 
