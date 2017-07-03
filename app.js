@@ -41,21 +41,17 @@ app.get('/articles/:id', function(req, res){
   models.Article.findOne({
     where: {
       id: req.params.id
-    }
+    },
+    include: [
+      {
+        model: models.Comment
+      }
+    ]
   }).then(function(article){
 
-    models.Comment.findAll({
-      where: {
-        articleId: article.id
-      }
-    }).then( function(comments){
-      res.render("article", {
-        article: article,
-        comments: comments
-      })
-
+    res.render("article", {
+      article: article
     })
-
   })
 })
 

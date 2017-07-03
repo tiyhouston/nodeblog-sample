@@ -19,12 +19,11 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     publishedAt: DataTypes.DATE
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+
+  Article.associate = function(models){
+    Article.hasMany(models.Comment, {foreignKey: 'articleId'})
+  }
+
   return Article;
 };

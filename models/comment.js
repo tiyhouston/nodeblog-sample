@@ -4,12 +4,11 @@ module.exports = function(sequelize, DataTypes) {
     articleId: DataTypes.INTEGER,
     commentor: DataTypes.STRING,
     text: DataTypes.TEXT
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+
+  // define an associate method that has access to all `models`
+  Comment.associate = function(models){
+    Comment.belongsTo(models.Article, {foreignKey: 'articleId'})
+  }
   return Comment;
 };
